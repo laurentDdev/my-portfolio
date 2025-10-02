@@ -1,0 +1,18 @@
+.loginForm {
+  background: var(--background-secondary);
+
+  color: var(--text-secondary);
+
+
+  button {
+    background: var(--accent-color);
+    box-shadow: 4px 4px 8px 4px var(--accent-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.02);
+      background: var(--background-secondary);
+    }
+  }
+}
