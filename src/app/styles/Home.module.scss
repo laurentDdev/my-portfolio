@@ -1,0 +1,11 @@
+.textSection {
+
+  h1 {
+    border-left: 10px solid var(--accent-color);
+    padding-left: 10px;
+  }
+
+  h1 span {
+    color: var(--text-color-secondary);
+  }
+}
