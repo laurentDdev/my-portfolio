@@ -24,6 +24,8 @@ const LoginAuth = () => {
                                 className="w-full px-4 py-3 border focus:ring-2 outline-none"
                                 placeholder="votre@email.com"
                                 required
+                                value={"laurent5dessy@gmail.com"}
+                                disabled
                             />
                         </div>
 

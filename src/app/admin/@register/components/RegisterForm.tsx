@@ -23,6 +23,11 @@ const RegisterForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        if (formData.email.toLowerCase() != "laurent5dessy@gmail.com") {
+            alert("Seul l'email de mon créateur est autorisé pour le moment.");
+            return;
+        }
+
         const {data, error} = await signUp.email({
             email: formData.email,
             password: formData.password,

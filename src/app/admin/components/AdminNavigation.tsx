@@ -1,5 +1,6 @@
 import React from 'react';
-
+import styles from "@/app/styles/components/AdminNavigation.module.scss"
+import Link from "next/link";
 
 
 
@@ -22,7 +23,19 @@ const adminLinks = [
 
 const AdminNavigation = () => {
     return (
-        <nav className={"w-72"}>
+        <nav className={`${styles.adminNav} w-64 h-full p-6`}>
+            <ul>
+                {adminLinks.map((item) => (
+                    <li key={item.name} className={"mb-4"}>
+                        <Link
+                            href={item.link}
+                            className={"text-lg font-medium text-gray-700 hover:text-gray-900"}
+                        >
+                            {item.name}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
         </nav>
     );
 };
