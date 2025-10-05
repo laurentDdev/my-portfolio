@@ -2,6 +2,10 @@
   background: var(--background-secondary);
 
   ul li a {
-    color: var(--text-color-secondary);
+
+    &.activeLink {
+      color: var(--accent-color);
+    }
   }
 }
+

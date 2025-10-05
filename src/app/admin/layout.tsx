@@ -2,6 +2,7 @@
 import React from 'react';
 import AdminNavigation from "@/app/admin/components/AdminNavigation";
 import {useSession} from "@/lib/auth-client";
+import {AdminContextProvider} from "@/app/contexts/AdminContext";
 
 const AdminLayout = ({dashboard, login, register}: {
     dashboard: React.ReactNode,
@@ -28,8 +29,10 @@ const AdminLayout = ({dashboard, login, register}: {
     if (session) {
         return (
             <div className={"flex gap-3 h-full"}>
-                <AdminNavigation />
-                {dashboard}
+                <AdminContextProvider>
+                    <AdminNavigation />
+                    {dashboard}
+                </AdminContextProvider>
             </div>
         );
     }
