@@ -5,7 +5,7 @@ import styles from "@/app/styles/components/Footer.module.scss"
 
 const Footer = () => {
     return (
-        <footer className={`${styles.footer} w-full  py-6 mt-10`}>
+        <footer className={`${styles.footer} w-full  py-6`}>
             <div className="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
 
                 {/* Texte copyright */}

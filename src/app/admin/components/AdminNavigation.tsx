@@ -1,8 +1,7 @@
 import React from 'react';
 import styles from "@/app/styles/components/AdminNavigation.module.scss"
 import Link from "next/link";
-
-
+import LogoutButton from "@/app/admin/components/LogoutButton";
 
 
 const adminLinks = [
@@ -23,7 +22,7 @@ const adminLinks = [
 
 const AdminNavigation = () => {
     return (
-        <nav className={`${styles.adminNav} w-64 h-full p-6`}>
+        <nav className={`${styles.adminNav} w-64 h-full flex flex-col justify-between p-6 top-0`}>
             <ul>
                 {adminLinks.map((item) => (
                     <li key={item.name} className={"mb-4"}>
@@ -36,6 +35,7 @@ const AdminNavigation = () => {
                     </li>
                 ))}
             </ul>
+            <LogoutButton/>
         </nav>
     );
 };

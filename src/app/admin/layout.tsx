@@ -35,17 +35,17 @@ const AdminLayout = ({dashboard, login, register}: {
     }
 
     return (
-        <>
+        <div className={"h-full flex flex-col justify-center p-4"}>
             {showLogin ? login : register}
-            <div className={"text-center mt-4"}>
+            <div className={"text-center"}>
                 <button
-                    className={"underline"}
+                    className={"underline cursor-pointer mt-4"}
                     onClick={() => setShowLogin(!showLogin)}
                 >
                     {showLogin ? "Créer un compte" : "Déjà un compte ? Connectez-vous"}
                 </button>
             </div>
-        </>
+        </div>
     );
 };
 
