@@ -1,10 +1,20 @@
-"use client"
-import React, {createContext, PropsWithChildren, useState} from "react";
+import React, {createContext, PropsWithChildren, use, useEffect, useState} from "react";
 
+
+export type Tag = {
+    id: number;
+    label: string;
+    color: string;
+    icon: string;
+}
 
 export type AdminContextType = {
     currentDashboardUrl: ADMIN_DASHBOARD_URL;
     setCurrentDashboardUrl: React.Dispatch<React.SetStateAction<ADMIN_DASHBOARD_URL>>;
+    tags: Tag[];
+    setTags: React.Dispatch<React.SetStateAction<Tag[]>>;
+    addTag: (tag: Tag) => void;
+    removeTag: (id: number) => void;
 }
 
 export enum ADMIN_DASHBOARD_URL {
@@ -18,10 +28,29 @@ export const AdminContext = createContext<AdminContextType | null>(null)
 
 export const AdminContextProvider = ({children}: PropsWithChildren) => {
 
+
     const [currentDashboardUrl, setCurrentDashboardUrl] = useState(ADMIN_DASHBOARD_URL.MANAGE_TAGS)
+    const [tags, setTags] = useState<Tag[]>([])
+
+    const addTag = (tag: Tag) => {
+        setTags((prevTags) => [...prevTags, tag]);
+    };
+
+    const removeTag = (id: number) => {
+        setTags((prevTags) => prevTags.filter((tag) => tag.id !== id));
+    }
+
+    useEffect(() => {
+        fetch("/api/tag")
+            .then((res) => res.json())
+            .then((data: Tag[]) => {
+                setTags(data);
+            })
+            .catch((err) => console.error(err));
+    }, []);
 
     return (
-        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl}}>
+        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl, tags, removeTag, setTags, addTag}}>
             {children}
         </AdminContext.Provider>
     )

@@ -1,7 +1,11 @@
-import React, {Dispatch} from "react";
+import React, {Dispatch, useContext} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {FaTimes} from "react-icons/fa";
 import styles from "@/app/styles/admin/dashboard/DashboardModal.module.scss"
+import {zodResolver} from "@hookform/resolvers/zod";
+
+import * as z from "zod"
+import {AdminContext, AdminContextType} from "@/app/contexts/AdminContext";
 
 type Inputs = {
     icon: string;
@@ -9,16 +13,40 @@ type Inputs = {
     label: string;
 };
 
+const schema = z.object({
+    icon: z.string().min(1, {message: "Champ requis"}),
+    color: z.string().min(1, {message: "Champ requis"}).regex(/^#?([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/, {message: "Format de couleur invalide"}),
+    label: z.string().min(1, {message: "Champ requis"}),
+})
+
 type ModalTagProps = {
     onClose: Dispatch<React.SetStateAction<boolean>>;
 };
 
 const ModalTag = ({onClose}: ModalTagProps) => {
-    const {register, handleSubmit, formState: {errors}} = useForm<Inputs>();
+    const {register, handleSubmit, formState: {errors}} = useForm<Inputs>({
+        resolver: zodResolver(schema)
+    });
+
+    const {addTag} = useContext(AdminContext) as AdminContextType
 
     const onSubmit: SubmitHandler<Inputs> = (data) => {
         console.log("Form data :", data);
-        onClose(false); // ferme la modal après soumission
+
+        const {label, color, icon} = data
+        if (label && color && icon) {
+            console.log("Envoi des données au serveur...")
+            fetch('/api/tag', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({label, color, icon}),
+            }).then(res => res.json()).then(data => {
+                addTag(data)
+                onClose(false)
+            })
+        }
     };
 
     return (
