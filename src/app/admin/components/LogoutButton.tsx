@@ -15,7 +15,7 @@ const LogoutButton = () => {
     }
 
     return (
-        <button className={"flex gap-2 items-center cursor-pointer"} onClick={handleLogout}>
+        <button className={"text-lg font-medium hover:text-gray-400 flex gap-2 items-center cursor-pointer"} onClick={handleLogout}>
             <FaSignOutAlt />
             Se deconnecter
         </button>

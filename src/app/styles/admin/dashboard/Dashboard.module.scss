@@ -1,0 +1,15 @@
+.dashboardHeader {
+  button {
+    padding: 5px 10px;
+    background: var(--accent-color);
+
+    box-shadow: 4px 4px 8px 4px var(--accent-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      background: var(--background-secondary);
+    }
+  }
+}
