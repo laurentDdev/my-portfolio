@@ -28,7 +28,7 @@ const RegisterForm = () => {
             return;
         }
 
-        const {data, error} = await signUp.email({
+        await signUp.email({
             email: formData.email,
             password: formData.password,
             name: formData.pseudo
@@ -107,7 +107,7 @@ const RegisterForm = () => {
                 className="w-full py-3 px-4 text-white font-medium"
                 onClick={handleSubmit}
             >
-                S'inscrire
+                S inscrire
             </button>
 
         </form>

@@ -20,7 +20,7 @@ const AdminLayout = ({dashboard, login, register}: {
                 <div className="text-center">
                     <div className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full" role="status">
                     </div>
-                    <div className="mt-2">Maitre votre panel d'administration...</div>
+                    <div className="mt-2">Maitre votre panel d administration...</div>
                 </div>
             </div>
         )

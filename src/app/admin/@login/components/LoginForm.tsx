@@ -27,7 +27,7 @@ const LoginForm = () => {
             return;
         }
 
-        const {data, error} = await signIn.email({
+        const {error} = await signIn.email({
             email: formData.email,
             password: formData.password,
             callbackURL: '/admin'

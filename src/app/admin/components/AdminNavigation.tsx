@@ -2,7 +2,6 @@
 
 import React, {useContext} from 'react';
 import styles from "@/app/styles/components/AdminNavigation.module.scss"
-import Link from "next/link";
 import LogoutButton from "@/app/admin/components/LogoutButton";
 import {ADMIN_DASHBOARD_URL, AdminContext, AdminContextType} from "@/app/contexts/AdminContext";
 

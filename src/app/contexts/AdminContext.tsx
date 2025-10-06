@@ -1,4 +1,4 @@
-import React, {createContext, PropsWithChildren, use, useEffect, useState} from "react";
+import React, {createContext, PropsWithChildren, useEffect, useState} from "react";
 
 
 export type Tag = {
@@ -14,6 +14,7 @@ export type AdminContextType = {
     tags: Tag[];
     setTags: React.Dispatch<React.SetStateAction<Tag[]>>;
     addTag: (tag: Tag) => void;
+    updateTag:(tag: Tag) => void;
     removeTag: (id: number) => void;
 }
 
@@ -36,6 +37,10 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
         setTags((prevTags) => [...prevTags, tag]);
     };
 
+    const updateTag = (tag: Tag) => {
+        setTags((prevTags) => prevTags.map((t) => t.id === tag.id ? tag : t));
+    }
+
     const removeTag = (id: number) => {
         setTags((prevTags) => prevTags.filter((tag) => tag.id !== id));
     }
@@ -50,7 +55,7 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
     }, []);
 
     return (
-        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl, tags, removeTag, setTags, addTag}}>
+        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl, tags, removeTag,updateTag, setTags, addTag}}>
             {children}
         </AdminContext.Provider>
     )
