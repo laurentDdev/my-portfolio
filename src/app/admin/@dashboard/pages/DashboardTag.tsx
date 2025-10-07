@@ -1,8 +1,11 @@
+"use client"
+
 import React, {Dispatch, useContext} from 'react';
-import {AdminContext, AdminContextType, Tag} from "@/app/contexts/AdminContext";
+import {AdminContext, AdminContextType} from "@/app/contexts/AdminContext";
 import {FaTrash, FaPenAlt} from "react-icons/fa";
 
 import type {Tag as TagType} from "@/app/contexts/AdminContext";
+import DynamicIcon from "@/app/components/DynamicIcon";
 
 
 const TagComponent = ({tag, onDeleteTag, updateTag}: { tag: TagType, onDeleteTag: (tagId: number) => void, updateTag: Dispatch<TagType> }) => {
@@ -14,6 +17,7 @@ const TagComponent = ({tag, onDeleteTag, updateTag}: { tag: TagType, onDeleteTag
             <div key={tag.id}
                  className={"p-2 flex gap-2 items-center text-black cursor-pointer hover:scale-105 transition duration-150"}
                  style={{background: tag.color}}>
+                <DynamicIcon name={tag.icon} />
                 <p>{tag.label}</p>
                 <FaPenAlt className={'hover:scale-125 cursor-pointer transition duration-150'}
                           onClick={() => setEditingTag(tag)}/>
