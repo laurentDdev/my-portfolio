@@ -19,12 +19,10 @@ const AboutMe = () => {
         text-[var(--text-primary)]
       "
         >
-            {/* Title */}
             <h1 className="text-5xl font-bold text-[var(--accent-color)]">
                 My background in a few words
             </h1>
 
-            {/* Intro */}
             <div className="flex flex-col gap-3 md:max-w-7xl">
                 <SubTitle text="My Background"/>
                 <p className="text-lg leading-relaxed text-gray-300">
@@ -36,13 +34,11 @@ const AboutMe = () => {
                 </p>
             </div>
 
-            {/* Skills */}
             <div className="flex flex-col gap-3 max-w-5xl">
                 <SubTitle text="My Skills"/>
                 <DisplaySkills skills={skills}/>
             </div>
 
-            {/* Motivation + CV */}
             <div className="flex flex-col gap-4 max-w-5xl">
                 <p className="text-lg leading-relaxed text-gray-300">
                     I would like to join an ambitious team where I can take on new
@@ -67,11 +63,10 @@ const AboutMe = () => {
                     className="italic text-sm"
                     style={{color: "var(--accent-color)"}}
                 >
-          "Self-teaching is learning by doing."
+          &#34;Self-teaching is learning by doing.&#34;
         </span>
             </div>
 
-            {/* Socials (floating right side) */}
             <div
                 className="
           absolute right-8 top-1/2 -translate-y-1/2
