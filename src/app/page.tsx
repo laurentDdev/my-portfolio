@@ -5,10 +5,11 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import styles from "@/app/styles/Home.module.scss"
 import {SOCIAL_URL} from "@/url";
+import React from "react";
 
 export default function Home() {
   return (
-      <div className="h-[80%] flex items-center justify-evenly gap-10 p-5 flex-col sm:flex-row sm:gap-10">
+      <div className="h-[80%] relative h-full flex items-center justify-evenly gap-10 p-5 flex-col sm:flex-row sm:gap-10">
           {/* Section Texte */}
           <div className="flex flex-col gap-4 w-full sm:w-1/2">
               <div className={`${styles.textSection} flex flex-col gap-5`}>
@@ -48,6 +49,13 @@ export default function Home() {
                   style={{ boxShadow: '4px 4px 10px 4px var(--accent-color)' }}
               />
           </div>
+
+          <div
+              className="
+          absolute inset-0 pointer-events-none
+          bg-gradient-to-t from-[var(--accent-color)]/10 via-transparent to-transparent
+        "
+          />
       </div>
 
   );

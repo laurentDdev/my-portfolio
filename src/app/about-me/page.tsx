@@ -11,20 +11,21 @@ const AboutMe = () => {
     return (
         <section
             className="
-            px-10 py-5
-        relative flex flex-col gap-5 justify-between
+            h-full
+            md:px-30 px-10 py-5
+        relative flex flex-col justify-evenly gap-2
 
         bg-[var(--background-primary)]
         text-[var(--text-primary)]
       "
         >
             {/* Title */}
-            <h1 className="text-5xl font-bold mb-4 text-[var(--accent-color)]">
+            <h1 className="text-5xl font-bold text-[var(--accent-color)]">
                 My background in a few words
             </h1>
 
             {/* Intro */}
-            <div className="flex flex-col gap-3 mt-4 max-w-5xl">
+            <div className="flex flex-col gap-3 md:max-w-7xl">
                 <SubTitle text="My Background"/>
                 <p className="text-lg leading-relaxed text-gray-300">
                     As a self-taught full-stack developer, I transform ideas into
@@ -36,13 +37,13 @@ const AboutMe = () => {
             </div>
 
             {/* Skills */}
-            <div className="flex flex-col gap-3 mt-10 max-w-5xl">
+            <div className="flex flex-col gap-3 max-w-5xl">
                 <SubTitle text="My Skills"/>
                 <DisplaySkills skills={skills}/>
             </div>
 
             {/* Motivation + CV */}
-            <div className="flex flex-col gap-4 mt-10 max-w-5xl">
+            <div className="flex flex-col gap-4 max-w-5xl">
                 <p className="text-lg leading-relaxed text-gray-300">
                     I would like to join an ambitious team where I can take on new
                     challenges, share my full-stack development expertise, and continue
@@ -63,7 +64,7 @@ const AboutMe = () => {
                 </button>
 
                 <span
-                    className="italic mt-2 text-sm"
+                    className="italic text-sm"
                     style={{color: "var(--accent-color)"}}
                 >
           "Self-teaching is learning by doing."
@@ -74,9 +75,8 @@ const AboutMe = () => {
             <div
                 className="
           absolute right-8 top-1/2 -translate-y-1/2
-          flex flex-col items-center gap-4
+          md:flex flex-col items-center gap-4
           hidden
-          md:block
         "
             >
                 <IconButton link={SOCIAL_URL.LINKEDIN}>
@@ -87,7 +87,12 @@ const AboutMe = () => {
                 </IconButton>
             </div>
 
-            {/* Decorative gradient accent */}
+            <div
+                className="
+          absolute inset-0 pointer-events-none
+          bg-gradient-to-t from-[var(--accent-color)]/10 via-transparent to-transparent
+        "
+            />
 
         </section>
     );
