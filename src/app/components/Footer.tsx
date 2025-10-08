@@ -2,6 +2,7 @@ import React from 'react';
 import {FaGithub, FaLinkedin} from "react-icons/fa";
 import IconButton from "@/app/components/IconButton";
 import styles from "@/app/styles/components/Footer.module.scss"
+import {SOCIAL_URL} from "@/url";
 
 const Footer = () => {
     return (
@@ -15,10 +16,10 @@ const Footer = () => {
 
                 {/* Icônes sociales */}
                 <div className="flex gap-4">
-                    <IconButton>
+                    <IconButton link={SOCIAL_URL.GITHUB}>
                         <FaGithub className="w-6 h-6 sm:w-8 sm:h-8" />
                     </IconButton>
-                    <IconButton>
+                    <IconButton link={SOCIAL_URL.LINKEDIN}>
                         <FaLinkedin className="w-6 h-6 sm:w-8 sm:h-8" />
                     </IconButton>
                 </div>

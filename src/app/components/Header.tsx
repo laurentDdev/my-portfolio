@@ -22,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <header className="p-5 flex justify-end items-center">
+        <header className="p-5 flex justify-end items-center p-10">
             {/* Navigation desktop */}
             <nav className="flex justify-end max-sm:hidden">
                 <ul className="flex gap-4">

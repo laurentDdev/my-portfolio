@@ -13,6 +13,7 @@ import * as Io5Icons from "react-icons/io5";
 import * as RiIcons from "react-icons/ri";
 import * as TbIcons from "react-icons/tb";
 import * as PiIcons from "react-icons/pi";
+import * as SiIcons from "react-icons/si";
 
 type IconModule =
     | typeof FaIcons
@@ -25,6 +26,7 @@ type IconModule =
     | typeof Io5Icons
     | typeof RiIcons
     | typeof TbIcons
+    | typeof SiIcons
     | typeof PiIcons;
 
 const libraries: Record<string, () => Promise<IconModule>> = {
@@ -39,6 +41,7 @@ const libraries: Record<string, () => Promise<IconModule>> = {
     ri: () => import("react-icons/ri"),
     tb: () => import("react-icons/tb"),
     pi: () => import("react-icons/pi"),
+    si: () => import("react-icons/si"),
 };
 
 // cache global

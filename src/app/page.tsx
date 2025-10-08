@@ -4,6 +4,7 @@ import IconButton from "@/app/components/IconButton";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import styles from "@/app/styles/Home.module.scss"
+import {SOCIAL_URL} from "@/url";
 
 export default function Home() {
   return (
@@ -26,10 +27,10 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 mt-8">
                   <ActionButton label="View my projects" width={70} />
                   <div className="flex gap-3">
-                      <IconButton>
+                      <IconButton link={SOCIAL_URL.GITHUB}>
                           <FaGithub className="w-6 h-6 sm:w-8 sm:h-8" />
                       </IconButton>
-                      <IconButton>
+                      <IconButton link={SOCIAL_URL.LINKEDIN}>
                           <FaLinkedin className="w-6 h-6 sm:w-8 sm:h-8" />
                       </IconButton>
                   </div>
