@@ -14,6 +14,16 @@ export type Skill = {
     icon?: string;
 }
 
+export type Project = {
+    id: number;
+    name: string;
+    description: string;
+    image?: string;
+    githubUrl?: string;
+    demoUrl?: string;
+    tags: Tag[];
+}
+
 export type AdminContextType = {
     currentDashboardUrl: ADMIN_DASHBOARD_URL;
     setCurrentDashboardUrl: React.Dispatch<React.SetStateAction<ADMIN_DASHBOARD_URL>>;
@@ -27,6 +37,11 @@ export type AdminContextType = {
     addSkill: (skill: Skill) => void;
     updateSkill:(skill: Skill) => void;
     removeSkill: (id: number) => void;
+    setProjects: React.Dispatch<React.SetStateAction<Project[]>>;
+    projects: Project[];
+    addProject: (project: Project) => void;
+    removeProject: (id: number) => void;
+    updateProject: (project: Project) => void;
 }
 
 export enum ADMIN_DASHBOARD_URL {
@@ -44,6 +59,7 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
     const [currentDashboardUrl, setCurrentDashboardUrl] = useState(ADMIN_DASHBOARD_URL.MANAGE_TAGS)
     const [tags, setTags] = useState<Tag[]>([])
     const [skills, setSkills] = useState<Skill[]>([]);
+    const [projects, setProjects] = useState<Project[]>([]);
 
     const addTag = (tag: Tag) => {
         setTags((prevTags) => [...prevTags, tag]);
@@ -51,6 +67,10 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
 
     const addSkill = (skill: Skill) => {
         setSkills((prevSkills) => [...prevSkills, skill]);
+    }
+
+    const addProject = (project: Project) => {
+        setProjects((prevProjects) => [...prevProjects, project]);
     }
 
     const updateTag = (tag: Tag) => {
@@ -61,12 +81,20 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
         setSkills((prevSkills) => prevSkills.map((s) => s.id === skill.id ? skill : s));
     }
 
+    const updateProject = (project: Project) => {
+        setProjects((prevProjects) => prevProjects.map((p) => p.id === project.id ? project : p));
+    }
+
     const removeTag = (id: number) => {
         setTags((prevTags) => prevTags.filter((tag) => tag.id !== id));
     }
 
     const removeSkill = (id: number) => {
         setSkills((prevSkills) => prevSkills.filter((skill) => skill.id !== id));
+    }
+
+    const removeProject = (id: number) => {
+        setProjects((prevProjects) => prevProjects.filter((project) => project.id !== id));
     }
 
     useEffect(() => {
@@ -85,11 +113,18 @@ export const AdminContextProvider = ({children}: PropsWithChildren) => {
                     setSkills(data);
                 })
                 .catch((err) => console.error(err));
+        } else if (currentDashboardUrl === ADMIN_DASHBOARD_URL.MANAGE_PROJECTS) {
+            fetch('/api/project')
+                .then((res) => res.json())
+                .then((data: Project[]) => {
+                    setProjects(data);
+                })
+                .catch((err) => console.error(err));
         }
     }, [currentDashboardUrl]);
 
     return (
-        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl, tags, removeTag,updateTag, setTags, addTag, skills, setSkills, addSkill, removeSkill, updateSkill}}>
+        <AdminContext.Provider value={{currentDashboardUrl, setCurrentDashboardUrl, tags, removeTag,updateTag, setTags, addTag, skills, setSkills, addSkill, removeSkill, updateSkill, projects, addProject, setProjects, removeProject, updateProject}}>
             {children}
         </AdminContext.Provider>
     )

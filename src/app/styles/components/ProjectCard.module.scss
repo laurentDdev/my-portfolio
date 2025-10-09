@@ -1,0 +1,215 @@
+.projectCard {
+  position: relative; // Ajouté pour les boutons admin
+  padding: 1rem;
+  background: var(--background-secondary);
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  img {
+    width: 100%;
+  }
+
+  &__adminActions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+
+    button {
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(10px);
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__edit {
+      background: rgba(59, 130, 246, 0.9);
+
+      &:hover {
+        background: rgba(59, 130, 246, 1);
+      }
+    }
+
+    &__delete {
+      background: rgba(239, 68, 68, 0.9);
+
+      &:hover {
+        background: rgba(239, 68, 68, 1);
+      }
+    }
+
+    &__save {
+      background: rgba(34, 197, 94, 0.9);
+
+      &:hover {
+        background: rgba(34, 197, 94, 1);
+      }
+    }
+
+    &__cancel {
+      background: rgba(156, 163, 175, 0.9);
+
+      &:hover {
+        background: rgba(156, 163, 175, 1);
+      }
+    }
+  }
+
+  &__imageContainer {
+    position: relative;
+    width: 100%;
+
+    &__uploadOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border-radius: 4px;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+      color: var(--text-color-secondary);
+    }
+
+    &__editTitle {
+      width: 100%;
+      font-size: 1.25rem;
+      font-weight: bold;
+      padding: 8px;
+      border: 2px solid rgba(59, 130, 246, 0.5);
+      border-radius: 6px;
+      background: var(--background-secondary);
+      color: var(--text-color-primary);
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: rgba(59, 130, 246, 1);
+      }
+    }
+
+    &__editDescription {
+      width: 100%;
+      padding: 8px;
+      border: 2px solid rgba(59, 130, 246, 0.5);
+      border-radius: 6px;
+      background: var(--background-secondary);
+      color: var(--text-color-primary);
+      resize: vertical;
+      font-family: inherit;
+      min-height: 80px;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        outline: none;
+        border-color: rgba(59, 130, 246, 1);
+      }
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__tags {
+        width: 100%;
+        display: flex;
+        overflow-x: auto;
+        gap: 0.5rem;
+
+        &__tag {
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
+      }
+
+      &__buttons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        gap: 0.5rem; // Ajouté pour les inputs
+
+        button {
+          width: 40%;
+          padding: 0.2rem;
+        }
+
+        a {
+          color: var(--text-color-primary);
+          text-decoration: none;
+          font-weight: bold;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        // Inputs URL en mode édition
+        &__editUrl {
+          flex: 1;
+          padding: 8px;
+          border: 2px solid rgba(59, 130, 246, 0.5);
+          border-radius: 6px;
+          background: var(--background-secondary);
+          color: var(--text-color-primary);
+          font-size: 0.9rem;
+          transition: border-color 0.2s ease;
+
+          &:focus {
+            outline: none;
+            border-color: rgba(59, 130, 246, 1);
+          }
+
+          &::placeholder {
+            color: var(--text-color-secondary);
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}

@@ -25,7 +25,7 @@ const ActionButton = ({label, onAction, marginBottom, marginTop, link, width}: P
     }
 
     return (
-        <button onClick={handleClick} className={`${styles.actionButton} text-3xl p-5 w-[${width}%] ${marginTop ? 'mt-' + marginTop : ''} ${marginBottom ? 'mb-' + marginBottom : ''}`}>
+        <button onClick={handleClick} className={`${styles.actionButton} text-3xl px-5 py-1 w-full w-[${width}%] ${marginTop ? 'mt-' + marginTop : ''} ${marginBottom ? 'mb-' + marginBottom : ''}`}>
             {label}
         </button>
     );

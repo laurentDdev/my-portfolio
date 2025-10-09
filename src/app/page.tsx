@@ -9,7 +9,7 @@ import React from "react";
 
 export default function Home() {
   return (
-      <div className="h-[80%] relative h-full flex items-center justify-evenly gap-10 p-5 flex-col sm:flex-row sm:gap-10">
+      <div className="relative h-full flex items-center justify-evenly gap-10 p-5 flex-col sm:flex-row sm:gap-10">
           {/* Section Texte */}
           <div className="flex flex-col gap-4 w-full sm:w-1/2">
               <div className={`${styles.textSection} flex flex-col gap-5`}>

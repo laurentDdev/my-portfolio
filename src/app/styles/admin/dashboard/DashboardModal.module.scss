@@ -13,8 +13,7 @@
   animation: fadeIn 0.3s ease-in-out;
   z-index: 1000;
 
-  // scroll si trop de contenu
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-y: auto;
 
   &__header {
@@ -50,6 +49,17 @@
   &__form {
     display: flex;
     flex-direction: column;
+
+
+    &__submit {
+        margin-top: 10px;
+
+        background: var(--accent-color);
+    }
+
+    &__error {
+      color: red;
+    }
 
     label {
       margin-bottom: 5px;
@@ -115,4 +125,61 @@
       transform: translate(-50%, -50%) scale(1);
     }
   }
+
 }
+
+.dashboardModal__form__imagePreview {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid var(--border-color, #444);
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+.dashboardModal__form__imagePlaceholder {
+  width: 100%;
+  height: 200px;
+  border: 2px dashed var(--border-color, #444);
+
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.dashboardModal__form select {
+  width: 100%;
+  padding: 10px 12px;
+
+  color: white;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
+  cursor: pointer;
+  min-height: 45px;
+}
+
+.dashboardModal__form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.dashboardModal__form select option {
+  padding: 8px 10px;
+  background: var(--background-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
