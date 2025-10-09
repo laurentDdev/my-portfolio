@@ -31,7 +31,7 @@ type ModalProjectProps = {
 };
 
 const ModalProject = ({onClose}: ModalProjectProps) => {
-    const {tags} = useContext(AdminContext) as AdminContextType;
+    const {tags, addProject} = useContext(AdminContext) as AdminContextType;
     const [preview, setPreview] = useState<string | null>(null);
     const [selectedTags, setSelectedTags] = useState<number[]>([]);
 
@@ -71,7 +71,7 @@ const ModalProject = ({onClose}: ModalProjectProps) => {
             method: 'POST',
             body: formData,
         }).then(res => res.json()).then(data => {
-            console.log("Projet ajouté :", data);
+            addProject(data)
             onClose(false);
         })
 
