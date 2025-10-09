@@ -347,7 +347,7 @@ const ProjectCard = ({ project: initialProject, isAdmin, onSave, onDelete }: Pro
                     ) : (
                         <>
                             <div className="flex-1 bg-red-500">
-                                <ActionButton label="Demo" width={100} />
+                                <ActionButton label="Demo" width={100} link={currentProject.demoUrl} />
                             </div>
                             <a
                                 href={currentProject.githubUrl || '#'}
