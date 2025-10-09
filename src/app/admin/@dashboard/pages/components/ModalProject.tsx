@@ -1,12 +1,12 @@
 import React, {useContext, useEffect, useState} from "react";
 import styles from "@/app/styles/admin/dashboard/DashboardModal.module.scss";
 import {FaTimes} from "react-icons/fa";
-import {SubmitHandler, useForm, Controller} from "react-hook-form";
+import {SubmitHandler, useForm} from "react-hook-form";
 import * as z from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {AdminContext, AdminContextType} from "@/app/contexts/AdminContext";
-import {toNumber} from "effect/BigInt";
 import DynamicIcon from "@/app/components/DynamicIcon";
+import Image from "next/image";
 
 type Inputs = {
     name: string;
@@ -92,7 +92,7 @@ const ModalProject = ({onClose}: ModalProjectProps) => {
 
                 {preview ? (
                     <div className={styles.dashboardModal__form__imagePreview}>
-                        <img src={preview} alt="Preview" onClick={() => {
+                        <Image src={preview} height={200} width={200} alt="Preview" onClick={() => {
                             setPreview(null)
                             setValue("image", {} as FileList)
                         }}/>

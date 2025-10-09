@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect, useMemo, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Skill} from "@/app/contexts/AdminContext";
 import DynamicIcon from "@/app/components/DynamicIcon";
 

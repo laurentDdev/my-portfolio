@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {AdminContext, AdminContextType, Project} from "@/app/contexts/AdminContext";
 import ProjectCard from "@/app/components/ProjectCard";
-import SubTitle from "@/app/components/SubTitle";
 
 const DashboardProject = () => {
 

@@ -1,6 +1,6 @@
 import dynamic from "next/dynamic";
 import React, { useMemo } from "react";
-import type { IconType } from "react-icons";
+import type {IconBaseProps, IconType} from "react-icons";
 
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
@@ -45,7 +45,7 @@ const libraries: Record<string, () => Promise<IconModule>> = {
 };
 
 // cache global
-const iconCache = new Map<string, React.ComponentType<any>>();
+const iconCache = new Map<string, React.ComponentType<IconBaseProps>>();
 
 interface DynamicIconProps {
     name: string;

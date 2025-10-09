@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SubTitle = ({text}) => {
+const SubTitle = ({text}: {text: string}) => {
     return (
         <h3
             className="

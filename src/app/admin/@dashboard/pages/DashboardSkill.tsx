@@ -1,5 +1,5 @@
 import React, {Dispatch, useContext} from 'react';
-import {AdminContext, AdminContextType, Skill, type Tag as TagType} from "@/app/contexts/AdminContext";
+import {AdminContext, AdminContextType, Skill} from "@/app/contexts/AdminContext";
 import DynamicIcon from "@/app/components/DynamicIcon";
 import {FaPenAlt, FaTrash} from "react-icons/fa";
 
@@ -82,7 +82,6 @@ const SkillComponent = ({skill, onDeleteSkill, updateSkill}: { skill: Skill, onD
 const DashboardSkill = () => {
 
     const {skills, removeSkill, updateSkill} = useContext(AdminContext) as AdminContextType
-    const [edidingSkill, setEditingSkill] = React.useState<Skill | null>(null);
 
     const handleDeleteSkill = (skillId: number) => {
         if (confirm('Confirmer la suppression du skill ')) {

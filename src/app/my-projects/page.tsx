@@ -3,6 +3,8 @@ import SubTitle from "@/app/components/SubTitle";
 import ProjectCard from "@/app/components/ProjectCard";
 import {Project} from "@/app/contexts/AdminContext";
 
+export const dynamic = 'force-dynamic';
+
 const MyProjectsPage = () => {
     const projects = use(fetch("http://localhost:3000/api/project").then((res) => res.json()));
 

@@ -22,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <header className="p-5 flex justify-end items-center p-10">
+        <header className="p-5 flex justify-end items-center">
             {/* Navigation desktop */}
             <nav className="flex justify-end max-sm:hidden">
                 <ul className="flex gap-4">
@@ -41,8 +41,6 @@ const Header = () => {
                     })}
                 </ul>
             </nav>
-
-            {/* Bouton menu mobile */}
             <button
                 className="sm:hidden"
                 onClick={toggleMenu}
@@ -51,9 +49,8 @@ const Header = () => {
                 {isMenuOpen ? <FaXmark /> : <FaBars />}
             </button>
 
-            {/* Menu mobile */}
             {isMenuOpen && (
-                <nav className={`absolute top-16 right-5  p-4 rounded shadow-lg sm:hidden ${styles.responsiveMenu}`}>
+                <nav className={`absolute top-16 right-5 z-20  p-4 rounded shadow-lg sm:hidden ${styles.responsiveMenu}`}>
                     <ul className="flex flex-col gap-4">
                         {links.map((link) => {
                             const isActive = pathname === link.href;

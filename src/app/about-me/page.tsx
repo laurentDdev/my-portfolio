@@ -5,6 +5,8 @@ import {FaFileDownload, FaGithub, FaLinkedin} from "react-icons/fa";
 import IconButton from "@/app/components/IconButton";
 import {SOCIAL_URL} from "@/url";
 
+export const dynamic = "force-dynamic";
+
 const AboutMe = () => {
     const skills = use(fetch("http://localhost:3000/api/skill").then((res) => res.json()));
 

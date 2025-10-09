@@ -58,7 +58,7 @@ export const POST = async (request: Request) => {
     }
 };
 
-export const GET = async (request: Request) => {
+export const GET = async () => {
     try {
 
         const projects = await prisma.project.findMany({
@@ -84,7 +84,7 @@ export const PUT = async (res: Request) => {
         }
 
         const body = await res.json();
-        const {id, name, description, image, githubUrl, demoUrl, tags} = body;
+        const {id, name, description, image, githubUrl, demoUrl} = body;
 
         console.log("body", body)
         if (!id || !name || !description) {
