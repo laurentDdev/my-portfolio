@@ -44,15 +44,7 @@ export const POST = async (req: Request) => {
 
 export const GET = async () => {
     try {
-        const session = await auth.api.getSession({
-            headers: await headers(),
-        })
 
-        if (!session || !session.user) {
-            return NextResponse.json({
-                error: "Unauthorized",
-            }, {status: 401})
-        }
         const tags = await prisma.tag.findMany()
 
         return NextResponse.json(tags)

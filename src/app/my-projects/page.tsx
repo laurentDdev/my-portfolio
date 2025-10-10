@@ -13,7 +13,7 @@ const MyProjectsPage = ({
     searchParams: Promise<{ [key: string]: string }>;
 }) => {
     const projects: Project[] = use(
-        fetch("http://localhost:3000/api/project").then((res) => res.json())
+        fetch(`${process.env.BETTER_AUTH_URL}/api/project`).then((res) => res.json())
     );
 
     // Extraction + parsing des filtres depuis l'URL

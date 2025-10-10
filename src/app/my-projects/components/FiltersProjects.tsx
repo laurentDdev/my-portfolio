@@ -14,7 +14,7 @@ const FiltersProjects = () => {
 
     useEffect(() => {
         // Fetch tags from API
-        fetch('http://localhost:3000/api/tag')
+        fetch(`${process.env.BETTER_AUTH_URL}/api/tag`)
             .then(response => response.json())
             .then(data => setTags(data))
             .catch(error => console.error('Error fetching tags:', error));

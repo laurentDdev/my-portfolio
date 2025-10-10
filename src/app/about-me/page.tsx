@@ -8,7 +8,7 @@ import {SOCIAL_URL} from "@/url";
 export const dynamic = "force-dynamic";
 
 const AboutMe = () => {
-    const skills = use(fetch("http://localhost:3000/api/skill").then((res) => res.json()));
+    const skills = use(fetch(`${process.env.BETTER_AUTH_URL}/api/skill`).then((res) => res.json()));
 
     return (
         <section
