@@ -26,7 +26,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 mt-8">
-                  <ActionButton label="View my projects" width={70} />
+                  <ActionButton label="View my projects" width={70} link={'/my-projects'} isLocalLink={true} />
                   <div className="flex gap-3">
                       <IconButton link={SOCIAL_URL.GITHUB}>
                           <FaGithub className="w-6 h-6 sm:w-8 sm:h-8" />

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import styles from "@/app/styles/components/ActionButton.module.scss"
+import {useRouter} from "next/navigation";
 
 type Props = {
     label: string;
@@ -10,13 +11,20 @@ type Props = {
     marginBottom?: number;
     width?: number;
     link?: string;
+    isLocalLink?: boolean;
 }
 
-const ActionButton = ({label, onAction, marginBottom, marginTop, link, width}: Props) => {
+const ActionButton = ({label, onAction, marginBottom, marginTop, link, width, isLocalLink}: Props) => {
+
+    const router = useRouter();
 
     const handleClick = () => {
         if (link) {
-            window.open(link, '_blank');
+            if (isLocalLink) {
+                router.push(link);
+            } else {
+                window.open(link, '_blank');
+            }
         } else {
             if (onAction) {
                 onAction();
